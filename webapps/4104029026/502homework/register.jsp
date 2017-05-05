@@ -17,17 +17,17 @@
     </style>
 
   </head>
-  <body align="center">
+  <body>
     <div>
       <h1 style="color:black;font-size:40px">register</h1>
     </div>
     <div>
       <form action="final.jsp" method="post">
-        帳號：<input type='text' name="account2"><br>
-        密碼：<input type='password' name="password2"><br>
-        姓名：<input type='text' name="username"><br>
-        生日：<input type='text' name="birthday" placeholder="1997/01/01"><br>
-        memo：<textarea name="memo">無</textarea><br>
+        帳號：&nbsp&nbsp<input type='text' name="account2" size="16"><br>
+        密碼：&nbsp&nbsp<input type='password' name="password2" size="16"><br>
+        姓名：&nbsp&nbsp<input type='text' name="username" size="16"><br>
+        生日：&nbsp&nbsp<input type='date' name="birthday" size="16"><br>
+        memo：<textarea name="memo" rows="1" cols="17">無</textarea><br>
         <input type="hidden" name="determine" value="register" ClientIDMode='Static'>
         <input type="submit" value="提交"/>
       </form>

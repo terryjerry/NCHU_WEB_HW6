@@ -17,7 +17,7 @@
     </style>
 
   </head>
-  <body align="center">
+  <body>
     <div>
       <h1 style="color:black;font-size:40px" ;>NCHU</h1>
     </div>
@@ -26,7 +26,7 @@
         帳號：<input type='text' name="account"><br>
         密碼：<input type='password' name="password"><br><br>
         <input type="hidden" name="determine" value="index" ClientIDMode='Static'>
-        <input type="submit" value="login"/>
+        <input type="submit" value="login">
       </form>
       <button><a href = "register.jsp" style="color:black;text-decoration: none">register</a></button>
     </div>
