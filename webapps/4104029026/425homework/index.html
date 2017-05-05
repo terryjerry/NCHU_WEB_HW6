@@ -1,0 +1,52 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>425homework</title>
+    <style>
+        body {
+            background-image: url("../indexold/images/lag.png");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="index.jsp" type="post">
+        姓名：<input type='text' name="username"><br>
+        生日：<input type='text' name="birY" value="1997">
+        年<input type='text' name="birM" value="01">
+        月<input type='text' name="birD" value="25">日<br>
+        性別：男<input type="radio" name="sex" value="男" checked>女<input type="radio" name="sex" value="女"><br>
+        血型:
+        <SELECT name="ABO" size=1>
+		        <OPTION value = "O型" selected>O型</OPTION>
+		        <OPTION value = "A型">A型</OPTION>
+		        <OPTION value = "B型">B型</OPTION>
+		        <OPTION value = "AB型">AB型</OPTION>
+	      </SELECT><br>
+        興趣：
+        運動<input type="checkbox" name="hobby" value="運動" checked>
+        聽音樂<input type="checkbox" name="hobby" value="聽音樂">
+        看書<input type="checkbox" name="hobby" value="看書"><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        打電動<input type="checkbox" name="hobby" value="打電動">
+        逛街<input type="checkbox" name="hobby" value="逛街">
+        聊天<input type="checkbox" name="hobby" value="聊天">
+        其他<input type="checkbox" name="hobby" value="其他"><br>
+        兄弟姊妹:
+        <SELECT name="broth" size=5 Multiple>
+            <OPTION value = "無" selected>無</OPTION>
+		        <OPTION value = "哥哥">哥哥</OPTION>
+		        <OPTION value = "姐姐">姐姐</OPTION>
+		        <OPTION value = "妹妹">妹妹</OPTION>
+		        <OPTION value = "弟弟">弟弟</OPTION>
+	      </SELECT><br>
+        自傳：<textarea name="note"></textarea><br>
+        <input type="submit" value="送出"/>
+    </form>
+    <a href = "../index.html">回主頁</a>
+</body>
+
+</html>
