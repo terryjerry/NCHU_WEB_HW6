@@ -31,8 +31,8 @@
       ResultSet rs = null;
 
       if(determine.equals("register")){
-  			String account = request.getParameter("account");
-  			String password = request.getParameter("password");
+  			String account = request.getParameter("account2");
+  			String password = request.getParameter("password2");
   			String username = request.getParameter("username");
   			String birthday = request.getParameter("birthday");
   			String memo = request.getParameter("memo");

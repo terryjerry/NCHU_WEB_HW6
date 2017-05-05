@@ -26,9 +26,9 @@
         帳號：<input type='text' name="account"><br>
         密碼：<input type='password' name="password"><br><br>
         <input type="hidden" name="determine" value="index" ClientIDMode='Static'>
-        <input type="submit" value="login"/>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-        <button><a href = "register.jsp" style="color:black;text-decoration: none">register</a></button>
+        <input type="submit" value="login"/>
       </form>
+      <button><a href = "register.jsp" style="color:black;text-decoration: none">register</a></button>
     </div>
   </body>
 </html>

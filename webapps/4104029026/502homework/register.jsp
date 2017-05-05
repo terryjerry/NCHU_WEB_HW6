@@ -23,11 +23,11 @@
     </div>
     <div>
       <form action="final.jsp" method="post">
-        帳號：<input type='text' name="account"><br>
-        密碼：<input type='password' name="password"><br>
+        帳號：<input type='text' name="account2"><br>
+        密碼：<input type='password' name="password2"><br>
         姓名：<input type='text' name="username"><br>
         生日：<input type='text' name="birthday" placeholder="1997/01/01"><br>
-        memo：<textarea name="memo"></textarea><br>
+        memo：<textarea name="memo">無</textarea><br>
         <input type="hidden" name="determine" value="register" ClientIDMode='Static'>
         <input type="submit" value="提交"/>
       </form>
