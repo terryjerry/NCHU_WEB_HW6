@@ -6,9 +6,7 @@
     <meta charset="utf-8">
     <title>final</title>
     <%request.setCharacterEncoding("UTF-8");%>
-    <link rel="stylesheet"/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="assets/css/main.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <style>
         body {
@@ -38,9 +36,6 @@
   			String memo = request.getParameter("memo");
 
         try{
-          if(account.equals("") || password.equals("") || username.equals("") || birthday.equals("") || memo.equals("")){
-            throw new Exception("有欄位尚未填寫，請重新輸入");
-          }
   				Class.forName("com.mysql.jdbc.Driver").newInstance();
   				con = DriverManager.getConnection(url,user,pass);
   				stmt = con.createStatement();
@@ -54,21 +49,26 @@
           ps.setString(4, birthday);
           ps.setString(5, memo);
           int a = ps.executeUpdate();
+          %>
+          <header id="header" class="alt">
+              <nav>
+                  <ul>
+                      <li><strong><a href="../index.html" style="color:black">回主頁</a></strong></li>
+                  </ul>
+              </nav>
+          </header>
+          <%
           out.println(account + "登入成功");
-  			}catch(SQLException ex){
+          %><br/><br/><button><a href = "index.jsp" style="color:white;text-decoration: none;">返回登入頁面</a></button><%
+  			}catch(Exception ex){
           out.println("帳號重複，請重新輸入");
+          %><br/><br/><button><a href = "register.jsp" style="color:white;text-decoration: none;">返回註冊頁面</a></button><%
         }
-        catch(Exception ex){
-  				out.println(ex.getMessage());
-  			}
       }else if(determine.equals("index")){
         String account = request.getParameter("account");
   			String password = request.getParameter("password");
 
         try{
-          if(account.equals("") || password.equals("")){
-            throw new Exception("有欄位尚未填寫，請重新輸入");
-          }
   				Class.forName("com.mysql.jdbc.Driver").newInstance();
   				con = DriverManager.getConnection(url,user,pass);
   				stmt = con.createStatement();
@@ -85,7 +85,17 @@
             if(text_account.equals(account)){
               text_password = rs.getString("password");
               if(text_password.equals(password)){
+                %>
+                <header id="header" class="alt">
+                    <nav>
+                        <ul>
+                            <li><strong><a href="../index.html" style="color:black">回主頁</a></strong></li>
+                        </ul>
+                    </nav>
+                </header>
+                <%
                 out.println(account + "登入成功");
+                %><br/><br/><button><a href = "index.jsp" style="color:white;text-decoration: none;">返回登入頁面</a></button><%
                 flag = 1;
               }
             }
@@ -95,6 +105,7 @@
           }
         }catch(Exception ex){
   				out.println(ex.getMessage());
+          %><br/><br/><button><a href = "index.jsp" style="color:white;text-decoration: none;">返回登入頁面</a></button><%
   			}
       }
     %>
