@@ -2201,8 +2201,8 @@ header.major p {
 }
 
 table {
-    margin: 0 0 2em 0;
-    width: 100%;
+    
+
 }
 
 table tbody tr {
@@ -2220,11 +2220,10 @@ table td {
 }
 
 table th {
-    color: #484848;
+
     font-size: 0.9em;
     font-weight: 700;
     padding: 0 0.75em 0.75em 0.75em;
-    text-align: left;
 }
 
 table thead {

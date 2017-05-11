@@ -6,11 +6,31 @@
     <meta charset="utf-8">
     <title>final</title>
     <%request.setCharacterEncoding("UTF-8");%>
-    <link rel="stylesheet" href="assets/css/main.css"/>
+    <link rel="stylesheet" href="assets/css/main2.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <style>
         body {
             background-image: url("background.jpg");
+        }
+        #bord {
+          border-radius:50px;
+          -moz-border-radius:50px;
+          -webkit-border-radius:50px;
+          -webkit-box-shadow:0px 0px 50px 20px #00f9ff inset;
+          -moz-box-shadow:0px 0px 50px 20px #00f9ff inset;
+          box-shadow:0px 0px 50px 20px #00f9ff inset;
+          margin-right: 10%;
+          margin-left: 10%;
+        }
+        #bord2 {
+          border-radius:50px;
+          -moz-border-radius:50px;
+          -webkit-border-radius:50px;
+          -webkit-box-shadow:0px 0px 50px 20px #00f9ff inset;
+          -moz-box-shadow:0px 0px 50px 20px #00f9ff inset;
+          box-shadow:0px 0px 50px 20px #00f9ff inset;
+          margin-right: 38%;
+          margin-left: 38%;
         }
     </style>
 
@@ -60,6 +80,10 @@
           <%
           out.println(account + "登入成功");
           %><br/><br/><button><a href = "index.jsp" style="color:white;text-decoration: none;">返回登入頁面</a></button><%
+          rs.close();
+          ps.close();
+          stmt.close();
+          con.close();
   			}catch(Exception ex){
           out.println("帳號重複，請重新輸入");
           %><br/><br/><button><a href = "register.jsp" style="color:white;text-decoration: none;">返回註冊頁面</a></button><%
@@ -95,7 +119,7 @@
                 </header>
                 <%
                 out.println(account + "登入成功");
-                %><br/><br/><button><a href = "index.jsp" style="color:white;text-decoration: none;">返回登入頁面</a></button><%
+                %><br/><br/><%
                 flag = 1;
               }
             }
@@ -103,10 +127,122 @@
           if(flag == 0){
             throw new Exception("帳密輸入錯誤，請重新輸入");
           }
+          ps = con.prepareStatement(sql);
+          rs = ps.executeQuery();
+
+          %>
+          <div align="center">
+          <table id="bord">
+      			<tr>
+      				<th>account</th>
+      				<th>password</th>
+              <th>name</th>
+              <th>birthday</th>
+              <th>memo</th>
+      			</tr>
+            <%
+            while(rs.next()){
+            %>
+      			<tr align="center">
+      				<td><%=rs.getString("account")%></td>
+      				<td><%=rs.getString("password")%></td>
+              <td><%=rs.getString("name")%></td>
+              <td><%=rs.getString("birthday")%></td>
+              <td><%=rs.getString("memo")%></td>
+            </tr>
+            <%
+          }
+          %>
+      		</table>
+          </div>
+          <br><br>
+          <div align="center">
+            <form action="final.jsp" method="post" id="bord2">
+              輸入帳號查詢：<input type='text' name="account3" size="15" required/><br>
+              <input type="hidden" name="determine" value="search" ClientIDMode='Static' />
+              <input type="submit" value="search" />
+            </form>
+          </div>
+
+          <br/><br/><button><a href = "index.jsp" style="color:white;text-decoration: none;">返回登入頁面</a></button><br/><br/>
+          <%
+          rs.close();
+          ps.close();
+          stmt.close();
+          con.close();
         }catch(Exception ex){
   				out.println(ex.getMessage());
           %><br/><br/><button><a href = "index.jsp" style="color:white;text-decoration: none;">返回登入頁面</a></button><%
   			}
+      }else if(determine.equals("search")) {
+          String account = request.getParameter("account3");
+          try{
+    				Class.forName("com.mysql.jdbc.Driver").newInstance();
+    				con = DriverManager.getConnection(url,user,pass);
+    				stmt = con.createStatement();
+    				rs = stmt.executeQuery("select * from test;");
+
+            String sql = "select * from test";
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            int flag = 0;
+            while(rs.next()){
+              if(rs.getString("account").equals(account)){
+              %>
+              <header id="header" class="alt">
+                  <nav>
+                      <ul>
+                          <li><strong><a href="../index.html" style="color:black">回主頁</a></strong></li>
+                      </ul>
+                  </nav>
+              </header>
+              <div align="center">
+                <table id="bord">
+            			<tr>
+            				<th>account</th>
+            				<th>password</th>
+                    <th>name</th>
+                    <th>birthday</th>
+                    <th>memo</th>
+            			</tr>
+            			<tr align="center">
+            				<td><%=rs.getString("account")%></td>
+            				<td><%=rs.getString("password")%></td>
+                    <td><%=rs.getString("name")%></td>
+                    <td><%=rs.getString("birthday")%></td>
+                    <td><%=rs.getString("memo")%></td>
+                  </tr>
+            		</table>
+              </div>
+              <%
+              flag = 1;
+            }
+            }
+            if(flag == 0){
+              throw new Exception("帳號輸入錯誤，請重新輸入");
+            }
+            %><br><br>
+            <div align="center">
+              <form action="final.jsp" method="post" id="bord2">
+                輸入帳號查詢：<input type='text' name="account3" size="15" required/><br>
+                <input type="hidden" name="determine" value="search" ClientIDMode='Static' />
+                <input type="submit" value="search" />
+              </form>
+            </div>
+            <%
+          }catch(Exception ex){
+    				out.println(ex.getMessage());
+            %><br><br>
+            <div align="center">
+              <form action="final.jsp" method="post" id="bord2">
+                輸入帳號查詢：<input type='text' name="account3" size="15" required/><br>
+                <input type="hidden" name="determine" value="search" ClientIDMode='Static' />
+                <input type="submit" value="search" />
+              </form>
+            </div>
+            <%
+            %><br/><br/><button><a href = "index.jsp" style="color:white;text-decoration: none;">返回登入頁面</a></button><%
+    			}
       }
     %>
   </body>

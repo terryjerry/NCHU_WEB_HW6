@@ -6,11 +6,21 @@
     <meta charset="utf-8">
     <title>register</title>
     <%request.setCharacterEncoding("UTF-8");%>
-    <link rel="stylesheet" href="assets/css/main.css"/>
+    <link rel="stylesheet" href="assets/css/main2.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <style>
         body {
             background-image: url("background.jpg");
+        }
+        #bord {
+          border-radius:50px;
+          -moz-border-radius:50px;
+          -webkit-border-radius:50px;
+          -webkit-box-shadow:0px 0px 50px 20px #00f9ff inset;
+          -moz-box-shadow:0px 0px 50px 20px #00f9ff inset;
+          box-shadow:0px 0px 50px 20px #00f9ff inset;
+          margin-right: 35%;
+          margin-left: 35%;
         }
     </style>
 
@@ -28,7 +38,7 @@
       <br/><h1 style="color:black;font-size:40px">register</h1>
     </div>
     <div align="center">
-      <form action="final.jsp" method="post">
+      <form action="final.jsp" method="post" id="bord">
         帳號：&nbsp&nbsp<input type='text' name="account2" size="16" required><br>
         密碼：&nbsp&nbsp<input type='password' name="password2" size="16" required><br>
         姓名：&nbsp&nbsp<input type='text' name="username" size="16" required><br>
