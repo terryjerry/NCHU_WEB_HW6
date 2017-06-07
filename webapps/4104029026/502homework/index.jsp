@@ -1,11 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ page language="java" import="java.sql.*" %>
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
     <title>5/05作業</title>
-    <%request.setCharacterEncoding("UTF-8");%>
     <link rel="stylesheet" href="assets/css/main2.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <style>
