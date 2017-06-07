@@ -33,7 +33,7 @@
   </head>
   <body style='background-image: url("background.jpg")'>
     <header id="header" class="alt">
-        <h1 id="ab"><strong><a href="index.jsp" style="color:black">回登錄頁面</a></strong></h1>
+        <h1 id="ab"><strong><a href="index.html" style="color:black">回登錄頁面</a></strong></h1>
         <nav>
             <ul>
                 <li><strong><a href="../index.html" style="color:black">回主頁</a></strong></li>
